@@ -10,7 +10,7 @@ import json
 
 
 @app_views.route('/states/<state_id>/cities', methods=['GET', 'POST'], strict_slashes=False)
-def get_states():
+def get_cities():
     """gets all state objects"""
     if request.method == 'GET':
         all_objects = storage.all(State)
@@ -22,7 +22,7 @@ def get_states():
 
 @app_views.route('/cities/<state_id>', methods=['GET', 'DELETE', 'PUT'],
                  strict_slashes=False)
-def get_state_id(state_id):
+def get_city_id(state_id):
     """gets the state object using his id"""
     if request.method == 'GET':
         all_objects = storage.all(State)
@@ -36,7 +36,7 @@ def get_state_id(state_id):
 
 @app_views.route('/cities/<state_id>',
                  methods=['DELETE'], strict_slashes=False)
-def delete(state_id=None):
+def delete_city(state_id=None):
     """Deletes"""
     obj = storage.get('State', state_id)
     if obj is None:
@@ -48,7 +48,7 @@ def delete(state_id=None):
 
 
 @app_views.route('/states/<state_id>/cities', methods=['POST'], strict_slashes=False)
-def post():
+def post_city():
     """Creates"""
     res = request.get_json()
     if not res:
@@ -62,7 +62,7 @@ def post():
 
 
 @app_views.route('/cities/<state_id>', methods=['PUT'], strict_slashes=False)
-def post():
+def put_city():
     """PUT"""
     res = request.get_json()
     if not res:
