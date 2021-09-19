@@ -61,7 +61,7 @@ def post():
 
 
 @app_views.route('/states', methods=['PUT'], strict_slashes=False)
-def post():
+def put():
     """PUT"""
     res = request.get_json()
     if not res:
